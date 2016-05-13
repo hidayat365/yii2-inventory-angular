@@ -1,0 +1,39 @@
+<div class="row">
+    <h1>Create Item</h1>
+    <p>{{ message }}</p>
+
+    <form role="form" name="myForm">
+        <div class= "form-group" ng-class="{error: myForm.code.$invalid}">
+            <label>Kode Barang</label>
+            <div>
+            <input type= "text" name="code" ng-model="item.code" class= "form-control" placeholder="Kode Barang" required />
+            <span ng-show="myForm.code.$dirty && myForm.code.$invalid" class="help-inline">Title Required</span>
+            </div>
+        </div>
+        <div class= "form-group" ng-class="{error: myForm.name.$invalid}">
+            <label>Nama Barang</label>
+            <div>
+            <input type="text" name="name" ng-model="item.name" class= "form-control" placeholder="Nama Barang" required />
+            <span ng-show="myForm.name.$dirty && myForm.name.$invalid" class="help-inline">Name Required</span>
+            </div>
+        </div>
+        <div class= "form-group" ng-class="{error: myForm.quantity.$invalid}">
+            <label>Quantity</label>
+            <div>
+            <input type="text" name="quantity" ng-model="item.quantity" class= "form-control" placeholder="Quantity" required />
+            <span ng-show="myForm.quantity.$dirty && myForm.quantity.$invalid" class="help-inline">Quantity Required</span>
+            </div>
+        </div>
+        <div class= "form-group">
+            <label> Remarks </label>
+            <div>
+            <input type="text" name="remarks" ng-model="item.remarks" class= "form-control" placeholder="Remarks" />
+            </div>
+        </div>
+
+        <a href="#/item/index" class="btn btn-default">Cancel</a>
+        <button ng-click="updateItem(item);"
+                ng-disabled="isClean() || myForm.$invalid"
+                type="button" class="btn btn-primary">Submit</button>
+    </form>
+</div>
